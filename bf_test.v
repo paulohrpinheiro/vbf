@@ -36,3 +36,23 @@ fn test_input_command_from_a_get_b() {
 	result := exec(',+.', 'A')
 	assert result.output == 'B'
 }
+
+// The following tests are collect from http://esoteric.sange.fi/brainfuck/bf-source/prog/tests.b
+
+fn test_esoteric_newline_input() {
+	result := exec('>,>+++++++++,>+++++++++++[<++++++<++++++<+>>>-]<<.>.<<-.>.>.<<.',
+		'\n\004')
+	assert result.output == 'LF\nLF\n'
+}
+
+fn test_esoteric_array_is_big() {
+	result := exec('++++[>++++++<-]>[>+++++>+++++++<<-]>>++++<[[>[[>>+<<-]<]>>>-]>-[>+>+<<-]>]+++++[>+++++++<<++>-]>.<<.',
+		'')
+	assert result.output == '#\n'
+}
+
+fn test_esoteric_obscure_errors() {
+	result := exec('[]++++++++++[>++++++++++++++++++>+++++++>+<<<-]A;?@![#>>+<<]>[>++<[-]]>.>.',
+		'')
+	assert result.output == 'H\n'
+}
