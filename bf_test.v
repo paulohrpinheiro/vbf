@@ -19,14 +19,16 @@ fn test_move_to_last_from_first_then_back() {
 }
 
 fn test_get_capital_letter_a() {
-	result := exec('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.', '')
+	result := exec('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.',
+		'')
 	assert result.output == 'A'
 	assert result.memory[0] == 65
 }
 
 // adapted from https://en.wikipedia.org/wiki/Brainfuck#Hello_World!
 fn test_wikipedia_hello_world() {
-	result := exec('++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.', '')
+	result := exec('++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.',
+		'')
 	assert result.output == 'Hello World!'
 }
 
