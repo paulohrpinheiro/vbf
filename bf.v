@@ -16,7 +16,7 @@ fn main() {
 		return
 	}
 
-	result := exec(os.args[1], "")
+	result := exec(os.args[1], '')
 	println(result.output)
 }
 
