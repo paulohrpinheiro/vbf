@@ -18,11 +18,12 @@ fn main() {
 		return
 	}
 
-	result := exec(os.args[1])
+	result := exec(os.args[1], "")
 	println(result.output)
 }
 
-fn exec(program string) Result {
+fn exec(program string, input string) Result {
+	mut pos_input := 0
 	mut pos_memory := 0
 	mut pos_program := 0
 	mut result := Result{}
@@ -71,6 +72,10 @@ fn exec(program string) Result {
 					}
 				}
 				pos_program -= 1
+			}
+			`,` {
+				result.memory[pos_memory] = int(input[pos_input])
+				pos_input += 1
 			}
 			else {}
 		}
