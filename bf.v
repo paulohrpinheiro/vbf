@@ -2,13 +2,11 @@ module main
 
 import os
 
-const (
-	memory_len = 50
-)
+const memory_len = 30_000
 
 struct Result {
 mut:
-	memory [50]int
+	memory [30000]int
 	output string
 }
 
